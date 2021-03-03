@@ -36,6 +36,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import lib.kalu.camerax.databinding.LibCameraxFragmentCameraBinding
+import lib.kalu.camerax.executor.ThreadExecutor
 import java.io.File
 import kotlin.math.abs
 import kotlin.math.max

@@ -22,6 +22,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import lib.kalu.camerax.executor.ThreadExecutor
 import java.util.concurrent.Executor
 
 fun ImageButton.toggleButton(
@@ -117,7 +118,7 @@ fun ViewPager2.onPageSelected(action: (Int) -> Unit) {
 fun Context.mainExecutor(): Executor = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
     mainExecutor
 } else {
-    MainExecutor()
+    ThreadExecutor()
 }
 
 val Context.layoutInflater: LayoutInflater
