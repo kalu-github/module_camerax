@@ -4,3 +4,7 @@
 /app/build/intermediates/javac/debug/classes/
 /lib_camerax/build/
 /lib_camerax/build/intermediates/javac/debug/classes/
+/local.properties
+/build
+/.gradle
+/.idea
