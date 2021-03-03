@@ -1,0 +1,19 @@
+<resources>
+
+    <style name="CameraxTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/color_1a1a18</item>
+        <item name="colorPrimaryDark">@color/color_80000000</item>
+        <item name="colorAccent">@color/color_e7a942</item>
+        <item name="android:navigationBarColor">@color/color_80000000</item>
+    </style>
+
+<!--    <style name="AppTheme.NoActionBar">-->
+<!--        <item name="windowActionBar">false</item>-->
+<!--        <item name="windowNoTitle">true</item>-->
+<!--    </style>-->
+
+<!--    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />-->
+
+<!--    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Dark" />-->
+
+</resources>

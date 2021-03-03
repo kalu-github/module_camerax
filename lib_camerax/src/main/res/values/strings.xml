@@ -1,0 +1,12 @@
+<resources>
+    <string name="action_settings">设置</string>
+    <string name="message_no_permissions">未能获取权限</string>
+    <string name="label_ok">确定</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cd_take_picture">Take picture</string>
+    <string name="cb_open_gallery">Navigate to Gallery</string>
+    <string name="cb_switch">Switch between front and back cameras</string>
+    <string name="cb_timer">Select a timer</string>
+</resources>
