@@ -14,7 +14,6 @@
         <activity
             android:name="com.kalu.camerax.MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden|keyboard|uiMode"
-            android:exported="false"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

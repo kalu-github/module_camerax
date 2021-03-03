@@ -26,13 +26,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/btnTakePicture" />
 
-    <ImageButton
+    <lib.kalu.camerax.widget.TakeView
         android:id="@+id/btnTakePicture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:background="@android:color/transparent"
-        android:padding="@dimen/double_margin"
-        android:src="@drawable/ic_take_picture"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
