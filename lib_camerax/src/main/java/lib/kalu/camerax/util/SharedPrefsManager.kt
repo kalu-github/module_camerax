@@ -1,4 +1,4 @@
-package lib.kalu.camerax.utils
+package lib.kalu.camerax.util
 
 import android.content.Context
 

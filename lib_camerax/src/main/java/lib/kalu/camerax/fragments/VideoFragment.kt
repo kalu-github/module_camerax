@@ -27,7 +27,7 @@ import coil.load
 import coil.request.ImageRequest
 import coil.transform.CircleCropTransformation
 import lib.kalu.camerax.R
-import lib.kalu.camerax.utils.*
+import lib.kalu.camerax.util.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import lib.kalu.camerax.databinding.LibCameraxFragmentVideoBinding

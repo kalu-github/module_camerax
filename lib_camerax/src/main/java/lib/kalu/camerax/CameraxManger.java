@@ -25,7 +25,6 @@ public final class CameraxManger {
         startActivityForResult(fragment, 0);
     }
 
-
     public final static void startActivityForResult(@NonNull Fragment fragment,
                                                     @IntRange(from = 1000, to = 10000) int requestCode) {
 

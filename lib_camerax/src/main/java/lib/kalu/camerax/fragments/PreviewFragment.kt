@@ -8,7 +8,7 @@ import androidx.navigation.Navigation
 import lib.kalu.camerax.R
 import lib.kalu.camerax.adapter.MediaAdapter
 import lib.kalu.camerax.databinding.LibCameraxFragmentPreviewBinding
-import lib.kalu.camerax.utils.*
+import lib.kalu.camerax.util.*
 
 class PreviewFragment : BaseFragment<LibCameraxFragmentPreviewBinding>(R.layout.lib_camerax_fragment_preview) {
     private val mediaAdapter = MediaAdapter(

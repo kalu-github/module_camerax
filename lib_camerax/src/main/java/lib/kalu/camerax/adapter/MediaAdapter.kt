@@ -11,7 +11,7 @@ import coil.load
 import lib.kalu.camerax.R
 import lib.kalu.camerax.callback.MediaDiffCallback
 import lib.kalu.camerax.model.MediaModel
-import lib.kalu.camerax.utils.layoutInflater
+import lib.kalu.camerax.util.layoutInflater
 
 /**
  * This is an adapter to preview taken photos or videos

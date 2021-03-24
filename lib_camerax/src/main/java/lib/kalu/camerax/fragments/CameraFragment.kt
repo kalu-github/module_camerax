@@ -31,7 +31,7 @@ import coil.transform.CircleCropTransformation
 import lib.kalu.camerax.R
 import lib.kalu.camerax.analyzer.LuminosityAnalyzer
 import lib.kalu.camerax.enums.CameraTimer
-import lib.kalu.camerax.utils.*
+import lib.kalu.camerax.util.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
