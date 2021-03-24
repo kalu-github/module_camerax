@@ -25,20 +25,21 @@
 
         <!-- 竖屏 -->
         <activity
-            android:name="lib.kalu.camerax.CameraxActivity"
+            android:name=".ui.CameraxActivity"
             android:configChanges="orientation|screenSize|keyboardHidden|keyboard|uiMode"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/CameraxTheme" />
 
         <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="{applicationId}.provider"
+            android:name="lib.kalu.camerax.fileprovider.CameraxFileProvider"
+            android:authorities="{applicationId}.camerax.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths" />
+                android:resource="@xml/lib_camerax_fileprovider_path" />
         </provider>
     </application>
+
 </manifest>

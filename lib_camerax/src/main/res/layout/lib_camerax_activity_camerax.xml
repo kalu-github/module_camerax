@@ -11,4 +11,5 @@
         android:layout_height="match_parent"
         app:defaultNavHost="true"
         app:navGraph="@navigation/lib_camerax_nav_graph" />
+
 </FrameLayout>

@@ -1,19 +1,39 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="CameraxTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/color_1a1a18</item>
-        <item name="colorPrimaryDark">@color/color_80000000</item>
-        <item name="colorAccent">@color/color_e7a942</item>
-        <item name="android:navigationBarColor">@color/color_80000000</item>
-    </style>
-
-<!--    <style name="AppTheme.NoActionBar">-->
-<!--        <item name="windowActionBar">false</item>-->
-<!--        <item name="windowNoTitle">true</item>-->
+<!--    <style name="CameraxTheme" parent="Theme.AppCompat.Light.NoActionBar">-->
+<!--        <item name="colorPrimary">@color/color_1a1a18</item>-->
+<!--        <item name="colorPrimaryDark">@color/color_80000000</item>-->
+<!--        <item name="colorAccent">@color/color_e7a942</item>-->
+<!--        <item name="android:navigationBarColor">@color/color_80000000</item>-->
 <!--    </style>-->
 
-<!--    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />-->
+    <style name="CameraxTheme" parent="Theme.AppCompat.Light.NoActionBar">
 
-<!--    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Dark" />-->
+        <item name="android:windowAnimationStyle">@null</item>
+
+        // 标题栏背景颜色
+        <item name="colorPrimary">@android:color/white</item>
+        // 状态栏透明层颜色
+        <item name="colorPrimaryDark">@android:color/white</item>
+        // 一般如floatingActionBar按钮的颜色，RadioButton／输入框聚焦／进度条等色值
+        <item name="colorAccent">@android:color/white</item>
+        <item name="android:navigationBarColor">@android:color/white</item>
+        // fitsSystemWindows只作用在Android4.4及以上的系统，因为4.4以下的系统StatusBar没有透明状态。
+        <!--        <item name="android:fitsSystemWindows">false</item>-->
+        // 为 Theme 设置透明属性, 是否半透明
+        <item name="android:windowIsTranslucent">false</item>
+        // 透明状态栏（Android 4.4系统效果为透明状态，5.0及其以后系统效果为半透明状态）在styles.xml(v19)中设置
+        <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">false</item>
+        // 透明导航栏（android4.4以上支持），在styles.xml(v19)中设置
+        <item name="android:windowTranslucentNavigation" tools:targetApi="kitkat">false</item>
+        // 状态栏颜色
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@android:color/transparent
+        </item>
+        // 状态栏白底黑字
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        // 使导航栏和状态栏可绘制（android5.0以上支持）,即状态栏是否覆盖在ContentView上，在styles.xml(v21)中设置
+        <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="lollipop">true</item>
+
+    </style>
 
 </resources>
