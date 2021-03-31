@@ -1,5 +1,6 @@
 package lib.kalu.camerax.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
@@ -16,6 +17,9 @@ public class CameraxActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        Intent intent = new Intent();
+        intent.putExtra("data", "4321");
+        setResult(1234, intent);
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onBackPressed();
     }
