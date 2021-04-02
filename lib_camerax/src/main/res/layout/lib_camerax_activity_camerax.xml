@@ -1,15 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentNavHost"
-        android:name="androidx.navigation.fragment.NavHostFragment"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/lib_camerax_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:defaultNavHost="true"
-        app:navGraph="@navigation/lib_camerax_nav_graph" />
+        android:layout_height="match_parent" />
 
-</FrameLayout>
+    <!-- 顶部菜单 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:alpha="0.4"
+        android:background="@android:color/black" />
+
+
+    <!-- 底部菜单 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:layout_alignParentBottom="true"
+        android:alpha="0.4"
+        android:background="@android:color/black" />
+
+    <!-- 底部菜单 -->
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:clickable="true"
+        android:src="@drawable/lib_camerax_ic_capture" />
+
+    <!-- 底部菜单 -->
+    <ImageButton
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="80dp"
+        android:layout_marginBottom="25dp"
+        android:background="@android:color/transparent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_no_picture" />
+
+    <!-- 底部菜单 -->
+    <ImageButton
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="80dp"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/lib_camerax_ic_bg_button_round"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_outline_camera_front" />
+
+</RelativeLayout>
+
+    <!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+
+    <!--<androidx.fragment.app.FragmentContainerView-->
+    <!--    android:id="@+id/fragmentNavHost"-->
+    <!--    android:name="androidx.navigation.fragment.NavHostFragment"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="match_parent"-->
+    <!--    app:defaultNavHost="true"-->
+    <!--    app:navGraph="@navigation/lib_camerax_nav_graph" />-->
+
+    <!--</FrameLayout>-->

@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager2.widget.ViewPager2;
 
 import lib.kalu.camerax.R;
 
@@ -39,7 +41,38 @@ public class CameraxActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        // ui
+        // layout
         setContentView(R.layout.lib_camerax_activity_camerax);
+
+        // ui
+        ViewPager2 viewPager2 = findViewById(R.id.lib_camerax_viewpager);
+        viewPager2.setUserInputEnabled(true);
+
+        // adapter
+        CameraXAdapter cameraXAdapter = new CameraXAdapter(getSupportFragmentManager(), getLifecycle());
+        viewPager2.setAdapter(cameraXAdapter);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        ViewPager2 viewPager2 = findViewById(R.id.lib_camerax_viewpager);
+        viewPager2.registerOnPageChangeCallback(onPageChangeCallback);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        ViewPager2 viewPager2 = findViewById(R.id.lib_camerax_viewpager);
+        viewPager2.unregisterOnPageChangeCallback(onPageChangeCallback);
+    }
+
+    private final ViewPager2.OnPageChangeCallback onPageChangeCallback = new ViewPager2.OnPageChangeCallback() {
+        @Override
+        public void onPageSelected(int position) {
+            Toast.makeText(getApplicationContext(), position+"", Toast.LENGTH_SHORT).show();
+        }
+    };
 }

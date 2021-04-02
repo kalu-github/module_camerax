@@ -1,4 +1,4 @@
-package lib.kalu.camerax.fragments
+package lib.kalu.camerax.ui.fragment
 
 import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
@@ -23,7 +23,6 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import coil.fetch.VideoFrameUriFetcher
-import coil.load
 import coil.request.ImageRequest
 import coil.transform.CircleCropTransformation
 import lib.kalu.camerax.R
@@ -135,19 +134,6 @@ class VideoFragment : BaseFragment<LibCameraxFragmentVideoBinding>(R.layout.lib_
             btnSwitchCamera.setOnClickListener { toggleCamera() }
             btnGrid.setOnClickListener { toggleGrid() }
             btnFlash.setOnClickListener { toggleFlash() }
-
-            // This swipe gesture adds a fun gesture to switch between video and photo
-            val swipeGestures = SwipeGestureDetector().apply {
-                setSwipeCallback(left = {
-                    Navigation.findNavController(view).navigate(R.id.action_video_to_camera)
-                })
-            }
-
-            val gestureDetectorCompat = GestureDetector(requireContext(), swipeGestures)
-            viewFinder.setOnTouchListener { _, motionEvent ->
-                if (gestureDetectorCompat.onTouchEvent(motionEvent)) return@setOnTouchListener false
-                return@setOnTouchListener true
-            }
         }
     }
 
@@ -159,6 +145,11 @@ class VideoFragment : BaseFragment<LibCameraxFragmentVideoBinding>(R.layout.lib_
         binding.groupGridLines.visibility = if (hasGrid) View.VISIBLE else View.GONE
 
         adjustInsets()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        startCamera()
     }
 
     /**
@@ -379,20 +370,20 @@ class VideoFragment : BaseFragment<LibCameraxFragmentVideoBinding>(R.layout.lib_
     private fun setGalleryThumbnail(savedUri: Uri?) = binding.btnGallery.let { btnGallery ->
         // Do the work on view's thread, this is needed, because the function is called in a Coroutine Scope's IO Dispatcher
         btnGallery.post {
-            btnGallery.load(savedUri) {
-                placeholder(R.drawable.ic_no_picture)
-                transformations(CircleCropTransformation())
-                listener(object : ImageRequest.Listener {
-                    override fun onError(request: ImageRequest, throwable: Throwable) {
-                        super.onError(request, throwable)
-                        binding.btnGallery.load(savedUri) {
-                            placeholder(R.drawable.ic_no_picture)
-                            transformations(CircleCropTransformation())
-                            fetcher(VideoFrameUriFetcher(requireContext()))
-                        }
-                    }
-                })
-            }
+//            btnGallery.load(savedUri) {
+//                placeholder(R.drawable.ic_no_picture)
+//                transformations(CircleCropTransformation())
+//                listener(object : ImageRequest.Listener {
+//                    override fun onError(request: ImageRequest, throwable: Throwable) {
+//                        super.onError(request, throwable)
+//                        binding.btnGallery.load(savedUri) {
+//                            placeholder(R.drawable.ic_no_picture)
+//                            transformations(CircleCropTransformation())
+//                            fetcher(VideoFrameUriFetcher(requireContext()))
+//                        }
+//                    }
+//                })
+//            }
         }
     }
 

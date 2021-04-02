@@ -3,7 +3,7 @@ package lib.kalu.camerax.fileprovider;
 import androidx.annotation.Keep;
 
 /**
- * description:
+ * description: androidx.core.content.FileProvider
  * created by kalu on 2021-03-24
  */
 @Keep

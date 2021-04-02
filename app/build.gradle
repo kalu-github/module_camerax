@@ -62,6 +62,6 @@ dependencies {
 
 
     // 模块依赖
-    // implementation project(':lib_camerax')
-    implementation(name: 'lib_camerax_release_20210325', ext: 'aar')
+    implementation project(':lib_camerax')
+    // implementation(name: 'lib_camerax_release_20210325', ext: 'aar')
 }

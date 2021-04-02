@@ -1,4 +1,4 @@
-package lib.kalu.camerax.fragments
+package lib.kalu.camerax.ui.fragment
 
 import android.content.Intent
 import android.os.Bundle

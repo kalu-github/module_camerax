@@ -1,4 +1,4 @@
-package lib.kalu.camerax.fragments
+package lib.kalu.camerax.ui.fragment
 
 import android.annotation.SuppressLint
 import android.content.ContentValues
@@ -25,7 +25,6 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import coil.fetch.VideoFrameUriFetcher
-import coil.load
 import coil.request.ImageRequest
 import coil.transform.CircleCropTransformation
 import lib.kalu.camerax.R
@@ -145,18 +144,6 @@ class CameraFragment : BaseFragment<LibCameraxFragmentCameraBinding>(R.layout.li
             btnFlashOff.setOnClickListener { closeFlashAndSelect(FLASH_MODE_OFF) }
             btnFlashOn.setOnClickListener { closeFlashAndSelect(FLASH_MODE_ON) }
             btnFlashAuto.setOnClickListener { closeFlashAndSelect(FLASH_MODE_AUTO) }
-
-            // This swipe gesture adds a fun gesture to switch between video and photo
-            val swipeGestures = SwipeGestureDetector().apply {
-                setSwipeCallback(right = {
-                    Navigation.findNavController(view).navigate(R.id.action_camera_to_video)
-                })
-            }
-            val gestureDetectorCompat = GestureDetector(requireContext(), swipeGestures)
-            viewFinder.setOnTouchListener { _, motionEvent ->
-                if (gestureDetectorCompat.onTouchEvent(motionEvent)) return@setOnTouchListener false
-                return@setOnTouchListener true
-            }
         }
     }
 
@@ -167,6 +154,11 @@ class CameraFragment : BaseFragment<LibCameraxFragmentCameraBinding>(R.layout.li
         binding.btnGrid.setImageResource(if (hasGrid) R.drawable.ic_grid_on else R.drawable.ic_grid_off)
         binding.groupGridLines.visibility = if (hasGrid) View.VISIBLE else View.GONE
         adjustInsets()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        startCamera()
     }
 
     /**
@@ -310,7 +302,9 @@ class CameraFragment : BaseFragment<LibCameraxFragmentCameraBinding>(R.layout.li
 
     private fun setLastPictureThumbnail() = binding.btnGallery.post {
         getMedia().firstOrNull() // check if there are any photos or videos in the app directory
-            ?.let { setGalleryThumbnail(it.uri) } // preview the last one
+            ?.let {
+                // setGalleryThumbnail(it.uri)
+            } // preview the last one
             ?: binding.btnGallery.setImageResource(R.drawable.ic_no_picture) // or the default placeholder
     }
 
@@ -468,7 +462,7 @@ class CameraFragment : BaseFragment<LibCameraxFragmentCameraBinding>(R.layout.li
                     // This function is called if capture is successfully completed
                     outputFileResults.savedUri
                         ?.let { uri ->
-                            setGalleryThumbnail(uri)
+                           // setGalleryThumbnail(uri)
                             Log.d(TAG, "Photo saved in $uri")
                         }
                         ?: setLastPictureThumbnail()
@@ -485,20 +479,20 @@ class CameraFragment : BaseFragment<LibCameraxFragmentCameraBinding>(R.layout.li
         )
     }
 
-    private fun setGalleryThumbnail(savedUri: Uri?) = binding.btnGallery.load(savedUri) {
-        placeholder(R.drawable.ic_no_picture)
-        transformations(CircleCropTransformation())
-        listener(object : ImageRequest.Listener {
-            override fun onError(request: ImageRequest, throwable: Throwable) {
-                super.onError(request, throwable)
-                binding.btnGallery.load(savedUri) {
-                    placeholder(R.drawable.ic_no_picture)
-                    transformations(CircleCropTransformation())
-                    fetcher(VideoFrameUriFetcher(requireContext()))
-                }
-            }
-        })
-    }
+//    private fun setGalleryThumbnail(savedUri: Uri?) = binding.btnGallery.load(savedUri) {
+//        placeholder(R.drawable.ic_no_picture)
+//        transformations(CircleCropTransformation())
+//        listener(object : ImageRequest.Listener {
+//            override fun onError(request: ImageRequest, throwable: Throwable) {
+//                super.onError(request, throwable)
+//                binding.btnGallery.load(savedUri) {
+//                    placeholder(R.drawable.ic_no_picture)
+//                    transformations(CircleCropTransformation())
+//                    fetcher(VideoFrameUriFetcher(requireContext()))
+//                }
+//            }
+//        })
+//    }
 
     override fun onDestroyView() {
         super.onDestroyView()

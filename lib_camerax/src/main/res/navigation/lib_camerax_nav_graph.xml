@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/cameraFragment"
-        android:name="lib.kalu.camerax.fragments.CameraFragment"
+        android:name="lib.kalu.camerax.ui.fragment.CameraFragment"
         android:label="fragment_camera"
         tools:layout="@layout/lib_camerax_fragment_camera" >
         <action
@@ -31,12 +31,12 @@
     </fragment>
     <fragment
         android:id="@+id/previewFragment"
-        android:name="lib.kalu.camerax.fragments.PreviewFragment"
+        android:name="lib.kalu.camerax.ui.fragment.PreviewFragment"
         android:label="fragment_preview"
         tools:layout="@layout/lib_camerax_fragment_preview" />
     <fragment
         android:id="@+id/videoFragment"
-        android:name="lib.kalu.camerax.fragments.VideoFragment"
+        android:name="lib.kalu.camerax.ui.fragment.VideoFragment"
         android:label="fragment_video"
         tools:layout="@layout/lib_camerax_fragment_video" >
         <action
